@@ -5,7 +5,8 @@ set cursorline
 " nnoremap <space> @=((foldclosed(line('.')) < 0)? 'zc' : 'zo' )<CR>
 nnoremap <tab> @=((foldclosed(line('.')) < 0)? 'zc' : 'zo' )<CR>
 
-nnoremap q      :bd<cr>
+nnoremap x      :bd<cr>
+nnoreamp <C-s>  :w<cr>
 
 
 

@@ -4,6 +4,9 @@
 
 " Add your customized plugins:
 " Example: Plugin 'foo/bar/foobar'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
 Plugin 'unite.vim'
+Plugin 'kmnk/vim-unite-giti'
 
 

@@ -1,17 +1,30 @@
+" -*- vim:ft=vim:  
 
 set gfn=Consolas:h18
 set cursorline
 
-" nnoremap <space> @=((foldclosed(line('.')) < 0)? 'zc' : 'zo' )<CR>
-nnoremap <tab> @=((foldclosed(line('.')) < 0)? 'zc' : 'zo' )<CR>
+nnoremap       <silent>     <Tab>       @=(foldlevel('.')?'za':"\<Tab>")<CR>
+vnoremap                    <Tab>       zf
 
-nnoremap x      :bd<cr>
-nnoreamp <C-s>  :w<cr>
+nnoremap    q      :bd<cr>
+" nnoremap jk      <esc>
+nnoremap    <leader>w  :w!<cr>
 
+" Vim settings" {
+autocmd FileType vim call VimSettings()
+function! VimSettings()
+    setlocal    fdm=marker
+    setlocal    commentstring="\"%s"
+    setlocal    foldmarker={,}
+    let         &l:commentstring='" %s'
+    "let         &l:foldmarker='"{,"}'
+endfunction
+" }
 
-
-" Unite"{{{
-if exists(":Unite")
+" Unite " {
+"if exists("g:loaded_unite")
+au      VimEnter    *   call UniteSettings()
+function! UniteSettings()
   " Unite
   let g:unite_source_history_yank_enable = 1
   call unite#filters#matcher_default#use(['matcher_fuzzy'])
@@ -37,11 +50,11 @@ if exists(":Unite")
     imap <buffer> <C-j>   <Plug>(unite_select_next_line)
     imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
   endfunction
-endif
+endfunction
+" }
 
-"}}}
-
-" airline
+" airline tabline for buffer " {
 let g:airline_extensions = ['branch', 'tabline']
 nnoremap    gb      :bn<cr>
 nnoremap    gB      :bp<cr>
+" }

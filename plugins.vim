@@ -8,5 +8,6 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
 Plugin 'unite.vim'
 Plugin 'kmnk/vim-unite-giti'
-
-
+Plugin 'Shougo/vimproc'
+Plugin 'Shougo/vimshell'
+Plugin 'choplin/unite-spotlight'

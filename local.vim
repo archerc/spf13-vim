@@ -4,7 +4,11 @@ set wrap
 set cursorline
 set rnu
 if has('gui_running')
-  set gfn=Osaka-Mono:h18
+  if has('win32') || has('win64')
+    set gfn=Lucida_Sans_Typewriter:h13:cANSI
+  else
+    set gfn=Osaka-Mono:h18
+  endif
   "colorscheme solarized
   colorscheme peaksea
 else
@@ -77,6 +81,14 @@ function! VimSettings()
   "let         &l:foldmarker='"{,"}'
 endfunction
 " }
+
+" NerdTree settings
+augroup nerdtree
+autocmd! nerdtree FileType nerdtree call NerdTreeSettings()
+augroup END
+function! NerdTreeSettings()
+  nnoremap      b   :Bookmark<cr>
+endfunction
 
 " fugitive" {
 let g:fugitive_save_wildignore=&wildignore

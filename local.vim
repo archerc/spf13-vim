@@ -30,6 +30,9 @@ autocmd! VimEnter   *   call OnVimEnter()
 function! OnVimEnter()
   call UniteSettings()
   call FugitiveSettings()
+  if has('win32')
+    simalt ~x
+  endif
 endfunction
 " }
 
@@ -118,3 +121,4 @@ function! FugitiveSettings()
   endif
 endfunction
 " }
+

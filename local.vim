@@ -30,6 +30,7 @@ autocmd! VimEnter   *   call OnVimEnter()
 function! OnVimEnter()
   call UniteSettings()
   call FugitiveSettings()
+  call PythonSettings()
   if has('win32')
     simalt ~x
   endif
@@ -85,13 +86,14 @@ function! VimSettings()
 endfunction
 " }
 
-" NerdTree settings
+" NerdTree settings" {
 augroup nerdtree
 autocmd! nerdtree FileType nerdtree call NerdTreeSettings()
 augroup END
 function! NerdTreeSettings()
   nnoremap      b   :Bookmark<cr>
 endfunction
+" }
 
 " fugitive" {
 let g:fugitive_save_wildignore=&wildignore
@@ -120,5 +122,31 @@ function! FugitiveSettings()
     nnoremap <leader>gpl :Dispatch! git pull<CR>
   endif
 endfunction
+" }
+
+" Python " {
+let g:pymode_python = 'python3'
+let g:pymode_lint_on_fly = 1
+let g:pymode_lint_on_write = 0
+let g:pymode_rope = 1
+"autocmd! FileType python call PythonSettings()
+function! PythonSettings()
+endfunction
+" }
+
+" Syntastic " {
+"let g:loaded_syntastic_plugin = 1
+"let g:loaded_syntastic_checker = 0
+let g:syntastic_debug = 0
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_enable_highlighting = 1
+let g:syntastic_echo_current_error = 1
+let g:syntastic_enable_signs = 1
+let g:syntastic_enable_balloons = 1
+let g:syntastic_enable_highlighting = 1
+let g:syntastic_python_checkers = ['python']
 " }
 

@@ -44,14 +44,14 @@ function! UniteSettings()
     let g:unite_source_history_yank_enable = 1
     call unite#filters#matcher_default#use(['matcher_fuzzy'])
     nnoremap uu u
-    nnoremap ut :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
-    nnoremap ur :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-    nnoremap uo :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
+    nnoremap ut :<C-u>Unite -no-split -buffer-name=files   file_rec/async:!<cr>
+    nnoremap ur :<C-u>Unite -no-split -buffer-name=mru     file_mru<cr>
+    nnoremap uo :<C-u>Unite -no-split -buffer-name=outline outline<cr>
     nnoremap uy :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
     nnoremap ub :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
-    nnoremap uf :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
-    nnoremap u/ :<C-u>Unite -no-split -buffer-name=grep    -start-insert grep<cr>
-    nnoremap ug :<C-u>Unite -no-split -buffer-name=git     -start-insert giti<cr>
+    nnoremap uf :<C-u>Unite -no-split -buffer-name=files   file<cr>
+    nnoremap u/ :<C-u>Unite -no-split -buffer-name=grep    grep<cr>
+    nnoremap ug :<C-u>Unite -no-split -buffer-name=git     giti<cr>
     " nnoremap <leader>ft :Unite file_rec/async -default-action=tabopen<cr>
     " nnoremap <leader>fs :Unite file_rec/async -default-action=split<cr>
     " nnoremap <leader>fv :Unite file_rec/async -default-action=vsplit<cr>

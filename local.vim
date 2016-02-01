@@ -6,6 +6,7 @@ set rnu
 if has('gui_running')
   if has('win32') || has('win64')
     set gfn=Lucida_Sans_Typewriter:h13:cANSI
+    simalt ~X
   else
     set gfn=Osaka-Mono:h18
   endif
@@ -150,3 +151,27 @@ let g:syntastic_enable_highlighting = 1
 let g:syntastic_python_checkers = ['python']
 " }
 
+" LaTeX" {
+"   You may selectively use conceal mode by setting g:tex_conceal in your
+"   <.vimrc>.  By default, g:tex_conceal is set to "admgs" to enable concealment
+"   for the following sets of characters: >
+"   
+"   	a = accents/ligatures
+"   	b = bold and italic
+"   	d = delimiters
+"   	m = math symbols
+"   	g = Greek
+"   	s = superscripts/subscripts
+let g:tex_conceal = "abdmg"
+let g:Tex_DefaultTargetFormat = 'pdf'
+if has('win32')
+  let g:Tex_ViewRule_pdf = 'SumatraPDF'
+endif
+" disable live preview
+let g:loaded_vim_live_preview = 1
+"let g:livepreview_previewer = 'SumatraPDF'
+autocmd!    FileType tex    call TeXSettings()
+function!   TeXSettings()
+  set conceallevel=0
+endfunction
+" }

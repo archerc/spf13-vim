@@ -1,0 +1,4 @@
+
+if filereadable(expand('~/.spf13-vim-3/plugins.vim'))
+    source ~/.spf13-vim-3/plugins.vim
+endif

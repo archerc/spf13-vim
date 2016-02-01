@@ -1,0 +1,6 @@
+
+
+if filereadable(expand('~/.spf13-vim-3/local.vim'))
+    source ~/.spf13-vim-3/local.vim
+endif
+

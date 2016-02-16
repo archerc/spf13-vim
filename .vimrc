@@ -626,7 +626,7 @@
 
     " PyMode {
         " Disable if python support not present
-        if !has('python') && !has('python3')
+        if !has('python3') && !has('python')
             let g:pymode = 0
         endif
 
